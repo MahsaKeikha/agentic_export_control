@@ -1,0 +1,1 @@
+{"type":"object","properties":{"item":{"type":"object"},"parties":{"type":"array"},"origin":{"type":"string"},"destination":{"type":"string"},"end_use":{"type":"string"},"evidence":{"type":"array"}},"additionalProperties":true}
