@@ -1,40 +1,32 @@
-# Agentic Export Control
+# F108 | Agentic Export Control | L3 Gold Standard | v1.0
 
-F108 of the Agentic AI Library.
+A governed multi-agent reference system for export-control review support, including item scoping, jurisdiction and classification review, party and destination screening, end-use and end-user review, license-question triage, evidence organization, and qualified human compliance review.
 
-A multi agent reference system for export control review, evidence organization, item and destination scoping, license question triage, and human controlled compliance workflows.
+## Five-agent architecture
 
-## Architecture
+- Item Scope Agent
+- Party and Destination Agent
+- License Question Agent
+- Evidence Agent
+- Export Review Agent
 
-- [Agents](AGENTS)
-- [Tools](TOOLS)
-- [Skills](SKILLS)
-- [Orchestration](orchestration)
-- [Memory](memory)
-- [State](state)
-- [Schemas](schemas)
-- [Prompts](prompts)
-- [Config](config)
-- [Safety](safety)
-- [Observability](observability)
-- [Evaluations](evals)
-- [Benchmarks](benchmarks)
-- [Examples](examples)
-- [Tests](tests)
-- [Architecture](docs/ARCHITECTURE.md)
+## Gold-standard export-control governance
 
-## Safety
+F108 is fail closed and compliance-support only. Release requires reviewed item scope, jurisdiction, classification, parties and destination, end use and end user, license questions, evidence provenance, and explicit qualified export-control approval.
 
-This repository supports compliance analysis and evidence organization only. It does not make binding legal determinations, authorize exports, classify controlled items, issue licenses, or replace qualified export control counsel or authorized compliance personnel. Consequential actions require human review and approval.
+Release is blocked for unresolved jurisdiction or classification questions, restricted-party matches, prohibited-destination or end-use risks, uncertain license requirements or exception eligibility, deemed-export risk, recordkeeping gaps, missing evidence provenance, or unsupported compliance conclusions.
 
-## Run
+The reference system cannot autonomously authorize exports, issue final classifications, make license determinations, clear restricted parties, approve technology releases, or submit externally. Final determinations remain with authorized export-control personnel and qualified legal or compliance professionals.
+
+## Verification gates
+
+CI runs on Python 3.10, 3.11, and 3.12 and requires:
 
 ```bash
+ruff check . --select E9,F63,F7,F82
+python -m pytest -q
+python evals/held_out.py
 python run.py
 ```
 
-## Test
-
-```bash
-python -m pytest -q
-```
+The behavioral verification layer includes eight direct governance tests and a 10-scenario held-out export-control suite.
